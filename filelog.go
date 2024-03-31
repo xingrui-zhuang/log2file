@@ -45,6 +45,9 @@ func (flg *filelog) Log(level Level, args ...any) {
 							}
 
 							n, err = f.Write(bytes)
+							if err == nil {
+								f.Close()
+							}
 							return
 						},
 					))
